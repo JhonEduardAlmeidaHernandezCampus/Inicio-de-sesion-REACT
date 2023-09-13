@@ -1,0 +1,18 @@
+use("inicio_sesion")
+db.createCollection("users")
+db.users.insertMany(
+    [
+        {
+            id: 1,
+            usuario: "jhon",
+            contrasena: 123,
+            rol: "admin"
+        },
+        {
+            id: 2,
+            usuario: "nicolas",
+            contrasena: 1234,
+            rol: "user"
+        }
+    ]
+)
