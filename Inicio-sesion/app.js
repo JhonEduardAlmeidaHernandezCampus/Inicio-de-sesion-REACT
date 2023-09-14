@@ -29,7 +29,7 @@ app.post("/user", async (req, res) => {
         )
 
         if (comparar) {
-            res.json({ success: true });
+            res.json(comparar);
         } else {
             res.status(401).json({ success: false, message: 'Credenciales incorrectas' });
         }
