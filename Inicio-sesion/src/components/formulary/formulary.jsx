@@ -1,7 +1,10 @@
 import React from "react";
 import "./formuly.css"
+import { useNavigate } from "react-router-dom";
 
 export default function InicioSesion() {
+
+    const redirec = useNavigate()
 
     const handleSubmit =  async (e) => {
         e.preventDefault();
@@ -14,11 +17,18 @@ export default function InicioSesion() {
                 body: JSON.stringify(data)
             }
             const respuesta = await(await fetch (`http://127.10.10.10:5010/user`, config)).json()
+            console.log(respuesta);
 
-            if (respuesta.success) {
-                console.log("Inicio de sesión exitoso");
+            if (respuesta) {
+                redirec("/inicio",{
+                    state: {
+                        user: {
+                            nombre: respuesta.usuario
+                        }
+                    }
+                })
             } else {
-                console.log("Inicio de sesión fallido");
+                alert(respuesta.message)
             }
 
         } catch (error) {
