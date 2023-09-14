@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import InicioSesion from './components/formulary/formulary'
+import App from './routes/App'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <InicioSesion />
+    <App />
   </React.StrictMode>,
 )
